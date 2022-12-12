@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import ComponentC from "./ComponentC";
 
-function ComponentB() {
+function ComponentB({a, x}) {
+  const b = 2;
   return (
-    <div>ComponentB</div>
-  )
+    <div>
+      <p>ax + b ? (b = {b})</p>
+      {" x là tùy biến "}
+
+      <ComponentC a={a} x={x} b={b} />
+    </div>
+  );
 }
 
-export default ComponentB
+export default ComponentB;

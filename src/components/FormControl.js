@@ -1,55 +1,55 @@
 import React, { useState } from "react";
 
 function FormControl() {
-  const [ data, setData ] = useState({
-    name: "",
-    email: "",
-    password: "",
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
   })
 
-  const [ name, setName ] = useState()
-  const [ email, setEmail ] = useState()
-  const [ password, setPassword ] = useState()
+const onChangeInput = (e)=> {
+  const { name, value } = e.target;
 
-  const nameControl = (e) => {
-    setName(e.target.value)
+  setFormData({...formData, [name]: value})
+}
+
+  const onSubmitForm = (e) => {
+    e.preventDefault()
+    console.log(formData)
   }
 
-const emailControl = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const passwordControl = (e) => {
-    setPassword(e.target.value)
-  }
-  
-  
-  const clickHandler = ()=> {
-    
-  }
+  const { name, email } = formData
 
   return (
     <div>
       <div className="form-container">
         <div className="form-group">
-          <div className="form-control">
-            <label>User Name</label>
-            <input type="text"  value={name} placeholder="enter your name" onChange={nameControl}/>
-          </div>
+          <form onSubmit={onSubmitForm}>
+            <div className="form-control">
+              <label>User Name</label>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                placeholder="enter your name"
+                onChange={onChangeInput}
+              />
+            </div>
 
-          <div className="form-control">
-            <label>Email</label>
-            <input type="text" value={email} placeholder="Enter your email" onChange={emailControl}/>
-          </div>
+            <div className="form-control">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={onChangeInput}
+              />
+            </div>
 
-          <div className="form-control">
-            <label>Password</label>
-            <input type="text" value={password} placeholder="enter your password" onChange={passwordControl}/>
-          </div>
-          
-          <div className="form-control">
-            <input type="submit" value="Submit" onClick={clickHandler}/>
-          </div>
+            <div className="form-control">
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
         </div>
       </div>
     </div>

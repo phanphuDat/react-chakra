@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useAppContext } from '../../context/CounterContext'
 
-function ComponentC() {
+function ComponentC({ a, b}) {
+  const [ result, setResult ] = useState()
+  const { counter } = useAppContext()
+
+  const handleRs = () => {
+    const result = a*counter + b;
+    setResult(result)
+  }
+
+  useEffect(() => {
+    handleRs()
+  }, [counter])
+
   return (
-    <div>ComponentC</div>
+    <div>
+    <h1>ax + b = {result}</h1>
+    </div>
   )
 }
 
