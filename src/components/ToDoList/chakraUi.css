@@ -1,0 +1,8 @@
+/* default Css */
+
+VStack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

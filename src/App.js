@@ -1,12 +1,15 @@
-import { useState } from "react";
 import "./App.css";
-import CallApi from "./components/CallApi";
-import FormControl from "./components/FormControl";
-import MovieList from "./components/MovieList";
-import Speedometer from "./components/Seepdometer";
+// import CallApi from "./components/CallApi";
+// import FormControl from "./components/FormControl";
+// import MovieList from "./components/MovieList";
+// import Speedometer from "./components/Seepdometer";
+// import UseRefHook from "./components/UseRefHook";
 import UseContextHook from "./components/UseContextHook";
-import UseRefHook from "./components/UseRefHook";
-import {CounterContextProvider} from "./context/CounterContext";
+import { Heading, IconButton, VStack } from "@chakra-ui/react";
+import { FaSun, FaMoon } from "react-icons/fa";
+import TodoList from "./components/ToDoList/TodoList";
+import AddTodo from "./components/ToDoList/AddTodo";
+import ToDoList from "./components/ToDoList";
 
 function App() {
   // const movies = [
@@ -40,9 +43,8 @@ function App() {
   // };
 
   return (
-    <CounterContextProvider>
-      <div className="App">
-        {/* <div className="listMovies">
+    <div className="App">
+      {/* <div className="listMovies">
         <div className="listMovies__contai">
           <h2>{name}</h2>
           {isDisplay ? (
@@ -54,24 +56,27 @@ function App() {
         </div>
       </div> */}
 
-        {/* <div className="speedometer">
+      {/* <div className="speedometer">
         <Speedometer />
       </div>
       */}
 
-        {/* <div className="apiCalling">
+      {/* <div className="apiCalling">
         <CallApi />
       </div>  */}
 
-        {/* <div className="form__controlling">
+      {/* <div className="form__controlling">
         <FormControl />
       </div> */}
 
-        <div className="context-hook">
-          <UseContextHook />
-        </div>
+      {/* <div className="context-hook">
+        <UseContextHook />
+      </div> */}
+
+      <div className="todo-list">
+        <ToDoList />
       </div>
-    </CounterContextProvider>
+    </div>
   );
 }
 

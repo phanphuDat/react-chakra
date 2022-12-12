@@ -12,6 +12,8 @@ function ComponentC({ a, b}) {
 
   useEffect(() => {
     handleRs()
+
+    console.log('ok')
   }, [counter])
 
   return (
