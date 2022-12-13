@@ -3,16 +3,26 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
 import { CounterContextProvider } from "./context/CounterContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const config = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme({ config });
+
 root.render(
   <React.Fragment>
     <ChakraProvider>
-      <CounterContextProvider>
-        <App />
-      </CounterContextProvider>
+      {/* <ColorModeScript initialColorMode='light'> */}
+        <CounterContextProvider>
+          <App />
+        </CounterContextProvider>
+      {/* </ColorModeScript> */}
     </ChakraProvider>
   </React.Fragment>
 );
